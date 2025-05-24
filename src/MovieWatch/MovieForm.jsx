@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 const MovieForm = ({addMovie}) => {
     const[movieData, setMovieData] = useState({
@@ -15,7 +16,6 @@ const MovieForm = ({addMovie}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(movieData);
         if(!movieData?.title.trim() || !movieData?.ott.trim()) return alert("Add movies first");
         addMovie(movieData);
         setMovieData({...movieData, title:"", ott:""})
@@ -23,7 +23,7 @@ const MovieForm = ({addMovie}) => {
 
 
   return (
-    <form action=""
+    <form
      onSubmit={handleSubmit}
      className="flex flex-col md:flex-row gap-2 mb-8 w-full"
     >
@@ -59,5 +59,9 @@ const MovieForm = ({addMovie}) => {
     </form>
   )
 }
+
+MovieForm.propTypes = {
+    addMovie: PropTypes.func.isRequired,
+};
 
 export default MovieForm
