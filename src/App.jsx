@@ -6,7 +6,7 @@ function App() {
   
 
   return (
-    <div>
+    <div className='flex justify-center bg-gray-300 rounded-sm'>
       <MovieWatch />
     </div>
   )
