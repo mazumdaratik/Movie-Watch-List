@@ -36,7 +36,6 @@ const MovieItem = ({
 
             <button className='px-2 text-sm bg-green-600 hover:bg-green-500 cursor-pointer text-white rounded-md'
             onClick={() => toggledWatch(movie.id)}
-            handleFilter= { () => setFilter(movie.id)}
             >
               {movie.watched ? "Unwatch" : "Watched"}
             </button>
