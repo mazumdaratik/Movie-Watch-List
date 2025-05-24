@@ -2,7 +2,7 @@ import React from 'react'
 import MovieItem from './MovieItem'
 import PropTypes from 'prop-types'
 
-const MovieList = ({movies, rateMovie, toggledWatch, deleteMovie}) => {
+const MovieList = ({movies, rateMovie, toggledWatch, deleteMovie, handleFilter}) => {
   return (
     <div className='mt-4'>
         { movies.length === 0 ? (
@@ -14,6 +14,7 @@ const MovieList = ({movies, rateMovie, toggledWatch, deleteMovie}) => {
             {
               movies.map( (movie) => (
                 <MovieItem 
+                handleFilter={handleFilter}
                 key={movie.id}
                 movie={movie}
                 rateMovie ={rateMovie}

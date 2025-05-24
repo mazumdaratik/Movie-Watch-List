@@ -6,12 +6,14 @@ const MovieItem = ({
   movie, 
   rateMovie, 
   toggledWatch, 
-  deleteMovie
+  deleteMovie,
  }) => {
 
   const ratingChange = (newRating) => {
     rateMovie(movie.id, newRating)
   }
+
+
   return (
     
     <li className='flex justify-between items-center p-3 bg-gray-800 rounded-lg shadow-md'>
@@ -32,14 +34,15 @@ const MovieItem = ({
               color2='#ffd700'
             />
 
-            <button className='px-2 text-sm bg-green-600 hover:bg-green-500 text-white rounded-md'
+            <button className='px-2 text-sm bg-green-600 hover:bg-green-500 cursor-pointer text-white rounded-md'
             onClick={() => toggledWatch(movie.id)}
+            handleFilter= { () => setFilter(movie.id)}
             >
               {movie.watched ? "Unwatch" : "Watched"}
             </button>
 
             <button 
-            className='px-2 text-sm bg-red-600 hover:bg-red-500 text-white rounded-md'
+            className='px-2 text-sm bg-red-600 hover:bg-red-500 cursor-pointer text-white rounded-md'
             onClick={ () => deleteMovie(movie.id)}
             >
               Remove

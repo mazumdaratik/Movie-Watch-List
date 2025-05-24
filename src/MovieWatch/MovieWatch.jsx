@@ -11,6 +11,8 @@ export default function MovieWatch() {
     return stored ? JSON.parse(stored) : [];
   });
 
+  const [filter, setFilter] = useState("all")
+
  
   useEffect(() => {
     localStorage.setItem("movies", JSON.stringify(movies));
@@ -48,23 +50,19 @@ export default function MovieWatch() {
     setMovies(movies.filter((movie) => movie.id !== id));
   };
 
-  const allMovie = () => {
-
-  }
-
-  const showWatched = (id) => {
-    movies.filter( (movie) => {
-        movie.id === id ? "" : ""
-    })
-  }
+  const filteredMovies = movies.filter(movie => {
+    if (filter === "watched") return movie.watched;
+    if (filter === "unwatched") return !movie.watched;
+    return true;
+  });
 
   return (
     <div className="flex flex-col w-1/2 m-3 justify-center p-6 bg-slate-900  text-white rounded-lg shadow-lg">
       <Heading />
       <MovieForm addMovie={addMovie} />
-      <Filter allMovie={allMovie} showWatched={showWatched} movies={movies}/>
+      <Filter setFilter={setFilter} />
       <MovieList
-        movies={movies}
+        movies={filteredMovies}
         rateMovie={rateMovie}
         toggledWatch={toggledWatch}
         deleteMovie={deleteMovie}

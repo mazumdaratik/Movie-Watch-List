@@ -39,8 +39,7 @@ const MovieForm = ({addMovie}) => {
         name="ott" 
         value={movieData?.ott}
         onChange={handleChange}
-        className="border border-gray-300 bg-gray-800 cursor-pointer rounded-md"
-        >
+        className="border border-gray-300 bg-gray-800 cursor-pointer rounded-md">  
                 <option value="">Select an OTT</option>
                 <option value="Netfilx">Netfilx</option>
                 <option value="Amazon Prime">Amazon Prime</option>
@@ -52,7 +51,7 @@ const MovieForm = ({addMovie}) => {
 
         <button 
         type='submit'
-        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded"
+        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded"
         >
             Add
         </button>
